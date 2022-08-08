@@ -1,4 +1,4 @@
-# Landing-Page-dynamic-with-js-
+# Landing Page dynamic with js
 This Landing-Page project is about manipulating the Dom. in this project i dynamically built the navigation using javascript, i appended dynamically data to the Dom and linked the navigation to the landing page's sections regardless of the number of sections automatically using javascript.
 # Demo-Preview
 # Table of contents
