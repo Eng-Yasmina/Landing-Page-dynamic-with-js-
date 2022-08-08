@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page (advanced js)</title>
+    <!-- Load Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Load Font-awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Load Icons-cout CDN-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+        <!-- HTML document Follows BEM naming conventions
+        IDs are only used for sections to connect menu anchors to sections -->
+        <header>
+            <nav class="navigation__menu">
+                <!-- Navigation starts as empty UL that will be populated with JS -->
+                <ul id="navigation__list"></ul>
+            </nav>
+        </header>
+
+        <!-- Each Section has an ID (used for the anchor) and a data navigation attribute that will populate the li node.
+        Adding more sections will automatically populate nav. -->
+        <main>
+        <!-- hidden scroll to top button to dynamicelly add it using js, that's only visible when the user scrolls below the fold of the page-->
+        <a class="hidden" id="scroll-btn"><i class="fa-solid fa-circle-chevron-up"></i></a>
+
+        <!-- ============================== SECTION 1 : HOME =================================== -->
+        <!-- The first section is set to active class by default -->
+        <section id="Home" data-navigation="Home" class = "user-active-section">
+            <div class="main-grid">
+                <h1>test</h1>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse fuga voluptatem laborum nobis obcaecati unde necessitatibus quo nulla cumque soluta impedit debitis quasi eos assumenda ducimus necessitatibus fugit eum, velit repellendus atquexplicabo eveniet vero, consequatur vitae deserunt nam cumque ipsam inventore debitis repellendus. Consequuntur, iure eligendi qui ipsam sunt amet fugit placeat assumenda officia ullam debitis, tempore natus quos quam dolores ipsum, iusto culpa illum repudiandae illo nemo. Illo rem itaque provident natus hic, dolorum vel praesentium dolores officia tempore laboriosam pariatur est, doloribus incidunt. Ab fugiat esse dolor quo similiqr voluptatibus ut in commodi quaerat aliquid, quidem facilis voluptate quisquam, possimus expedita odit nesciunt totam modi quae quas placeat! Enim pariatur dolorum impedit consequuntur. Voluptatem odit aspernatur dicta explicabo id quam repudiandae quod itaque eos temporibus veritatis sapiente corr</p>
+            </div>
+        </section>
+
+        <!--===============Section 2: Program=========================-->
+        <section id="Nanodegrees" data-navigation="Nanodegrees">
+            <div class="nanodegrees-content">
+                <div class="nanodegrees-card">
+                    <div class="nanodegrees-icon">
+                        <i class="uil uil-cloud-computing"></i>
+                    </div>
+
+                    <div class="nanodegrees-info">
+                        <h3 style="color: #00C181;">Cloud Computimg</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit officia! Asperiores quisquam harum nisi!</p>
+                    </div>
+                </div>
+
+                <div class="nanodegrees-card">
+                    <div class="nanodegrees-icon icon2">
+                        <i class="uil uil-car"></i>
+                    </div>
+
+                    <div class="nanodegrees-info">
+                        <h3 style="color: #f2187d;">Autonomous Systems</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit officia! Asperiores quisquam harum nisi!</p>
+                    </div>
+                </div>
+
+                <div class="nanodegrees-card">
+                    <div class="nanodegrees-icon icon3">
+                        <i class="uil uil-android-alt"></i>
+                    </div>
+
+                    <div class="nanodegrees-info">
+                        <h3 style="color: #f78600;"> Andriod Kotlin</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit officia! Asperiores quisquam harum nisi!</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+
+        </footer>
+        </main>   
+    </body>
+</html>
+

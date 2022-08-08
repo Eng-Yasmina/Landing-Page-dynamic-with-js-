@@ -1,0 +1,158 @@
+/* loads Google font */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+/* ---- Base Rules ---- */
+body{color: var(--primary-text-color); background: var(--primary-bg-color);}
+
+
+
+/* Typeography General */
+*{font-family: 'Cairo', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root{
+    --primary-bg-color: #fafafa;
+    --active-bg-color: linear-gradient(135deg, #2014ff 0%, #142480 100%);
+    --tab-bg-color: #2014ff;
+    --btn-color: #00C181;
+    --btn-hover-color: #04a871;
+    --icon-bg-color: #0000;
+    --primary-text-color: #2014ff;
+    --secondary-text-color:#212121;
+    --third-text-color:#363636;
+    --active-text-color: #ffff;
+    --transition: 0.8s ease;
+}
+
+
+
+/* ---- Layout Rules ---- */
+section{padding: 100px 150px; height: 100vh; width: 100%;}
+img {display:block; width:100%; object-fit:cover;}
+
+
+
+/* ---- Module Rules ---- */
+
+/* Navigation Styles */
+header{
+    background-color: var(--active-text-color);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 30px 150px;
+    position: fixed;
+    transition: var(--transition);
+    border-end-end-radius: 50%;
+    border-end-start-radius: 50%;
+}
+
+#navigation__list {
+    display: flex;
+    align-items: center;
+}
+
+.navigation__a{
+    color: var(--secondary-text-color);
+    font-size: 1.1rem; 
+    font-weight: 600;
+    padding: 6px 30px;
+    cursor: pointer;
+}
+
+/* Active Nav Anchor Style */
+.active__anchor{
+    background: var(--tab-bg-color);
+    color: var(--active-text-color) !important;
+    border-radius: 0.32rem;}
+
+
+/* scroll To Top Buttom Style */
+.hidden{display: none;}
+.scroll-to-top{
+    color: #00C181;
+    position: fixed;
+    transform:translate(90vw, 90vh) scale(3);
+    display: block;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.scroll-to-top:hover{color: #04a871;}
+
+/* Sections Styles */
+
+/* Active Section Style */
+.user-active-section{
+    background: var(--active-bg-color);
+    color: var(--active-text-color);
+    border-start-start-radius: 7%;
+    border-end-end-radius: 5%;
+    border-start-end-radius: 15%;
+    border-end-start-radius: 20%;
+}
+
+/* Seciont 2 : Nanodegrees */
+.nanodegrees-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.nanodegrees-card{
+    flex: 0 10 21em;
+    background-color: #efe7ff;
+    border-radius: 50px;
+    padding: 30px;
+    margin: 14px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.nanodegrees-card:hover{
+    transform: scale(1.1);
+}
+
+.nanodegrees-icon{
+    color:#00C181;
+    transform: scale(300%);
+}
+
+.nanodegrees-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+.nodegrees-info h3{
+    font-size: 1.3 em;
+    font-weight: 700;
+}
+.nanodegrees-info P{color: var(--third-text-color) !important; text-align: center;}
+
+.icon2{color: #f2187d;}
+
+.icon3{color: #f78600;}
+
+
+
+
+    
