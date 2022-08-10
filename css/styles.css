@@ -152,23 +152,23 @@ header{
 
 
 /* Seciont 2: Nanodegrees */
-#Nanodegrees{
+#Programs{
     transition: var(--transition);
 }
 
-#Nanodegrees h1{
+#Programs h1{
     position: absolute;
     font-size: 4.5em;
     font-weight: 100;
     top: 1em;
 }
 
-#Nanodegrees h1 span{
+#Programs h1 span{
     font-size: 1em;
     font-weight: 600;
 }
 
-.nanodegrees-content{
+.programs-content{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,11 +177,11 @@ header{
     position: absolute;
 }
 
-.nanodegrees-card{
+.programs-card{
     flex: 0 1 20em;
     background: var(--card);
     border-radius: 3em;
-    padding: 2em;
+    padding: 3em 2em;
     margin: 1em;
     transition: var(--transition);
     display: flex;
@@ -189,29 +189,30 @@ header{
     align-items: center;
     justify-content: space-between;
     gap: 1.9em;
+    text-align: center;
 }
 
-.nanodegrees-card:hover{
+.programs-card:hover{
     transform: scale(1.1);
 }
 
-.nanodegrees-icon{
+.programs-icon{
     color:var(--icon-1-color);
     transform: scale(300%);
 }
 
-.nanodegrees-info{
+.programs-info{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 1em;
 }
-.nodegrees-info h3{
+.programs-info h3{
     font-size: 1.4em;
     font-weight: 600;
 }
-.nanodegrees-info P{
+.programs-info P{
     text-align: center;
 }
 
@@ -221,6 +222,24 @@ header{
 
 .icon3{
     color: var(--icon-3-color);
+}
+
+.btn{
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--btn-color);
+}
+
+.btn::after{
+    content: "";
+    height: 2.1px;
+    display: block;
+    width: 100%;
+    background: var(--card);
+}
+
+.btn:hover{
+    color: var(--tab-bg-color);
 }
 
 
@@ -402,22 +421,63 @@ header{
 }
 
 /* ================================= MEDIA QUERIES ===========================*/
-@media (max-width:1023px){
+@media (max-width:1400px){
     body{
-        font-size: 10px;
+        font-size: 9px;
+    }
+
+    header{
+        padding: 2em 2em;
+    }
+
+    .navigation__a{
+        font-size: 0.5rem; 
+       
+    }
+
+    .programs-card{
+        flex: 0 1 33em;
+        padding: 5em 2em;
+        gap: 4em;
     }
 }
 
-@media (max-width:600px){
+@media (max-width:900px){
     body{
         font-size: 7px;
     }
+
     .navigation__a{
         font-size: 0.5rem; 
-}
+    }
+
+    header{
+       
+        border-end-end-radius: 10%;
+        border-end-start-radius: 10%;
+    }
+
+    #Programs h1 {
+     
+        top: 4em;
+    }
+
+    #Reviews h1{
+     
+        top: 4em;
+    }
+
+    .programs-card{
+       flex: 0 1 24em;
+    }
+
+    .programs-info p{
+        display: none;
+    }
 }
 
-@media (max-width:300px){
+
+@media (max-width:389px){
     body{
         font-size: 5px;
     }
@@ -430,8 +490,18 @@ header{
 
     .navigation__a{
         font-size: 0.1rem; 
-        margin-left: 2em;
-}
+        margin-left: 2.5em;
+       
+    }
+
+    .programs-card{
+        width: 30em;
+        flex: 0 1 25em;
+     }
+
+    .programs-info p{
+        display: none;
+    }
 }
 
 

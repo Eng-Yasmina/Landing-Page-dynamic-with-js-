@@ -142,31 +142,18 @@ bgCircles();
         scrollToTop.href=`#${mainSection.getAttribute('data-navigation')}`;
     });
 
-// TODO: display instructors only when hover over section 3
+// TODO: display instructors only when hover over section 3 or click team nav anchor
 for (const sectionTag of allSections) {
         // extracts data-navigation to make sure it's section Team
         if (sectionTag.getAttribute('data-navigation')=='Team') {
             const sectionThreeActive = sectionTag;
             const instructors = sectionThreeActive.querySelector('.instructors')
-            if(sectionThreeActive.getBoundingClientRect().top>-350 && sectionThreeActive.getBoundingClientRect().top<350){
                 sectionThreeActive.addEventListener('mouseover',()=>{
                 instructors.style.display = 'block';
                 })
                 sectionThreeActive.addEventListener('mouseleave',()=>{
                 instructors.style.display = 'none';
                 })
-
-                for(const anchor of Anchors){
-                    // makes sure that active anchor tag is the tag that it's content is "Team"
-                    if(anchor.innerHTML===('Team')){
-                        anchor.addEventListener('click',()=>{
-                            instructors.style.display = 'block';
-                        })
-                    }  
-                }
-            }else{
-                instructors.style.display = 'none';
-            }   
         }
         
 }
