@@ -7,10 +7,8 @@
     <title>Landing Page (advanced js)</title>
     <!-- Load Favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- Load Font-awesome CDN-->
+    <!-- Load Font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Load Icons-cout CDN-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/app.js" defer></script>
 </head>
@@ -30,54 +28,68 @@
         <!-- hidden scroll to top button to dynamicelly add it using js, that's only visible when the user scrolls below the fold of the page-->
         <a class="hidden" id="scroll-btn"><i class="fa-solid fa-circle-chevron-up"></i></a>
 
+
         <!-- ============================== SECTION 1 : HOME =================================== -->
         <!-- The first section is set to active class by default -->
-        <section id="Home" data-navigation="Home" class = "user-active-section">
+        <section id="Home" data-navigation="Home" class = "grid user-active-section">
             <div class="main-grid">
                 <h1>test</h1>
                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse fuga voluptatem laborum nobis obcaecati unde necessitatibus quo nulla cumque soluta impedit debitis quasi eos assumenda ducimus necessitatibus fugit eum, velit repellendus atquexplicabo eveniet vero, consequatur vitae deserunt nam cumque ipsam inventore debitis repellendus. Consequuntur, iure eligendi qui ipsam sunt amet fugit placeat assumenda officia ullam debitis, tempore natus quos quam dolores ipsum, iusto culpa illum repudiandae illo nemo. Illo rem itaque provident natus hic, dolorum vel praesentium dolores officia tempore laboriosam pariatur est, doloribus incidunt. Ab fugiat esse dolor quo similiqr voluptatibus ut in commodi quaerat aliquid, quidem facilis voluptate quisquam, possimus expedita odit nesciunt totam modi quae quas placeat! Enim pariatur dolorum impedit consequuntur. Voluptatem odit aspernatur dicta explicabo id quam repudiandae quod itaque eos temporibus veritatis sapiente corr</p>
             </div>
         </section>
 
-        <!--===============Section 2: Program=========================-->
-        <section id="Nanodegrees" data-navigation="Nanodegrees">
+
+        <!--===============Section 2: Nanodegrees=========================-->
+        <section id="Nanodegrees" data-navigation="Nanodegrees" class="grid">
             <div class="nanodegrees-content">
                 <div class="nanodegrees-card">
                     <div class="nanodegrees-icon">
-                        <i class="uil uil-cloud-computing"></i>
+                        <i class="fa-solid fa-cloud"></i>
                     </div>
 
                     <div class="nanodegrees-info">
-                        <h3 style="color: #00C181;">Cloud Computimg</h3>
+                        <h3 style="color: #6C0078;">Cloud Computimg</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit officia! Asperiores quisquam harum nisi!</p>
                     </div>
                 </div>
 
                 <div class="nanodegrees-card">
                     <div class="nanodegrees-icon icon2">
-                        <i class="uil uil-car"></i>
+                        <i class="fa-solid fa-car"></i>
                     </div>
 
                     <div class="nanodegrees-info">
-                        <h3 style="color: #f2187d;">Autonomous Systems</h3>
+                        <h3 style="color: #F41A9C;">Autonomous Systems</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit officia! Asperiores quisquam harum nisi!</p>
                     </div>
                 </div>
 
                 <div class="nanodegrees-card">
                     <div class="nanodegrees-icon icon3">
-                        <i class="uil uil-android-alt"></i>
+                        <i class="fa-solid fa-mobile-screen"></i>
                     </div>
 
                     <div class="nanodegrees-info">
-                        <h3 style="color: #f78600;"> Andriod Kotlin</h3>
+                        <h3 style="color: #4F1AFF;"> Andriod Kotlin</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit officia! Asperiores quisquam harum nisi!</p>
                     </div>
                 </div>
 
             </div>
-        </section>
 
+            <h1><span>Why will </span>you choose us?</h1>
+        </section>
+        <!-- ===================== Section 3: Team-->
+        <section id="Team" data-navigation="Team" class="grid">
+                <div class="instructors">
+                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/katherine-kuan@2x-1784576.jpg" alt=""></div>
+                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/james-parkes%402x-6f66250.jpg" alt=""></div>
+                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/richard-kalehoff%402x-8fh576m.jpg" alt=""></div>
+                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/julia-van-cleve@2x-6e87815.jpg" alt=""></div>
+                </div>
+                
+                <h1><span> Meet </span>our<br>Team</h1>
+        </section>
         <footer>
 
         </footer>

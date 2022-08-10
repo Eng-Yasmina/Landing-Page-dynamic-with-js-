@@ -1,7 +1,8 @@
 /**
  * Defines Global Variables
  */
-const sectionsArrey = document.getElementsByTagName('section');
+const allSections = document.getElementsByTagName('section');
+const mainSection = document.querySelector('section')
 const navigattion__list = document.getElementById('navigation__list');
 const mainFragment = document.createDocumentFragment();
 const fixedHeaderBar = document.querySelector('header');
@@ -38,11 +39,10 @@ const scrollToTop = document.getElementById('scroll-btn');
      */
     function navigationMenu(){
     // loops over all sections
-    for (const sectionTag of sectionsArrey) {
+    for (const sectionTag of allSections) {
         // creates list tags <li> and anchor tages <a>
         const listTag = document.createElement('li');
         const anchorTag = document.createElement('a'); 
-    
 
         // extracts data-navigation using getAttribute
         //adds text content to <a>
@@ -71,6 +71,21 @@ const scrollToTop = document.getElementById('scroll-btn');
 
 navigationMenu();
 
+// TODO: build the background circles
+    /**
+     * @description Build active section background circles
+     */
+    function bgCircles() {
+        for (const sectionTag of allSections) {
+            const circle = document.createElement('div');
+            //prepends the div element to each section as a first child
+            sectionTag.prepend(circle);
+        }
+    }
+
+bgCircles();
+
+
 /**
  * End Main Functions
  * Begins Events
@@ -81,15 +96,19 @@ navigationMenu();
      * uses (get bouding client rect.) method to adds class (user-active-section) to section  and class (active-anchor) to it's linked navigation anchor tag <a> when near top of viewport
      */
     window.addEventListener("scroll", () =>{
-        const anchorArrey = document.getElementsByTagName('a');
+        const navAnchors = document.getElementsByTagName('a');
     
         // loops through all sections to determine the active section and  also to get each anchor tag <a> inside each section to determine the active anchor tag
-        for (const sectionTag of sectionsArrey){
-            if(sectionTag.getBoundingClientRect().top>-450 && sectionTag.getBoundingClientRect().top<400){
+        for (const sectionTag of allSections){
+            const backgroundCilcle = sectionTag.querySelector('div');
+
+            if(sectionTag.getBoundingClientRect().top>-350 && sectionTag.getBoundingClientRect().top<350){
                 const userActiveSection = sectionTag;
                 userActiveSection.classList.add('user-active-section');
+                backgroundCilcle.classList.add('circle1');
+
             
-                for(const anchor of anchorArrey){
+                for(const anchor of navAnchors){
                     // extracts data-navigation to check if it's the active anchor tag <a> or not
                     if(anchor.innerHTML===userActiveSection.getAttribute('data-navigation')){
                         anchor.classList.add('active__anchor');
@@ -98,6 +117,7 @@ navigationMenu();
                 }
             } else {
                 sectionTag.classList.remove('user-active-section');
+                backgroundCilcle.classList.remove('circle1');
             }
         }
 
@@ -113,11 +133,11 @@ navigationMenu();
 
 // TODO: add a scroll to top buttom that's only visible when the user scrolls below the fold of the page
     window.addEventListener('scroll',()=>{
-        scrollToTop.classList.toggle('scroll-to-top',window.scrollY>500).remove('hidden',window.scrollY>500);
+        scrollToTop.classList.toggle('scroll-to-top',window.scrollY>500);
     });
 
     scrollToTop.addEventListener('click',()=>{
-        scrollToTop.href=`#${sectionsArrey[0].getAttribute('data-navigation')}`;
+        scrollToTop.href=`#${mainSection.getAttribute('data-navigation')}`;
     });
 
 
