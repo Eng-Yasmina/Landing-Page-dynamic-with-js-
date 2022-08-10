@@ -7,6 +7,8 @@ const navigattion__list = document.getElementById('navigation__list');
 const mainFragment = document.createDocumentFragment();
 const fixedHeaderBar = document.querySelector('header');
 const scrollToTop = document.getElementById('scroll-btn');
+const Anchors = document.getElementsByTagName('a');
+
 /**
  * End Global Variables
  * Starts Helper Functions
@@ -96,19 +98,19 @@ bgCircles();
      * uses (get bouding client rect.) method to adds class (user-active-section) to section  and class (active-anchor) to it's linked navigation anchor tag <a> when near top of viewport
      */
     window.addEventListener("scroll", () =>{
-        const navAnchors = document.getElementsByTagName('a');
+        
     
         // loops through all sections to determine the active section and  also to get each anchor tag <a> inside each section to determine the active anchor tag
         for (const sectionTag of allSections){
             const backgroundCilcle = sectionTag.querySelector('div');
 
-            if(sectionTag.getBoundingClientRect().top>-350 && sectionTag.getBoundingClientRect().top<350){
+            if(sectionTag.getBoundingClientRect().top>-250 && sectionTag.getBoundingClientRect().top<250){
                 const userActiveSection = sectionTag;
                 userActiveSection.classList.add('user-active-section');
                 backgroundCilcle.classList.add('circle1');
 
             
-                for(const anchor of navAnchors){
+                for(const anchor of Anchors){
                     // extracts data-navigation to check if it's the active anchor tag <a> or not
                     if(anchor.innerHTML===userActiveSection.getAttribute('data-navigation')){
                         anchor.classList.add('active__anchor');
@@ -139,6 +141,35 @@ bgCircles();
     scrollToTop.addEventListener('click',()=>{
         scrollToTop.href=`#${mainSection.getAttribute('data-navigation')}`;
     });
+
+// TODO: display instructors only when hover over section 3
+for (const sectionTag of allSections) {
+        // extracts data-navigation to make sure it's section Team
+        if (sectionTag.getAttribute('data-navigation')=='Team') {
+            const sectionThreeActive = sectionTag;
+            const instructors = sectionThreeActive.querySelector('.instructors')
+            if(sectionThreeActive.getBoundingClientRect().top>-350 && sectionThreeActive.getBoundingClientRect().top<350){
+                sectionThreeActive.addEventListener('mouseover',()=>{
+                instructors.style.display = 'block';
+                })
+                sectionThreeActive.addEventListener('mouseleave',()=>{
+                instructors.style.display = 'none';
+                })
+
+                for(const anchor of Anchors){
+                    // makes sure that active anchor tag is the tag that it's content is "Team"
+                    if(anchor.innerHTML===('Team')){
+                        anchor.addEventListener('click',()=>{
+                            instructors.style.display = 'block';
+                        })
+                    }  
+                }
+            }else{
+                instructors.style.display = 'none';
+            }   
+        }
+        
+}
 
 
 
