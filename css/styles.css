@@ -151,7 +151,7 @@ header{
 }
 
 
-/* Seciont 2: Nanodegrees */
+/* Seciont 2: Programs */
 #Programs{
     transition: var(--transition);
 }
@@ -423,7 +423,7 @@ header{
 /* ================================= MEDIA QUERIES ===========================*/
 @media (max-width:1024px){
     body{
-        font-size: 9px;
+        font-size: 9.7px;
     }
 
     header{
@@ -431,39 +431,51 @@ header{
     }
 
     .navigation__a{
-        font-size: 0.5rem; 
-       
+        font-size: 0.9rem;   
     }
 
+    .scroll-to-top{
+        font-size: 1.7em;
+        }
     .programs-card{
         flex: 0 1 33em;
         padding: 5em 2em;
         gap: 4em;
     }
+
+    .programs-icon{
+        transform: scale(500%);
+    }
+
+     .programs-info h3{
+        font-size: 2em;
+        font-weight: 600;
+    }
+
+    .btn{
+        font-size: 1.7em;
+    }
 }
 
 @media (max-width:900px){
     body{
-        font-size: 7px;
+        font-size: 7.3px;
     }
 
     .navigation__a{
-        font-size: 0.5rem; 
+        font-size: 0.6rem; 
     }
 
     header{
-       
         border-end-end-radius: 10%;
         border-end-start-radius: 10%;
     }
 
     #Programs h1 {
-     
         top: 4em;
     }
 
     #Reviews h1{
-     
         top: 4em;
     }
 
@@ -477,30 +489,24 @@ header{
 }
 
 
-@media (max-width:389px){
+@media (max-width:393px){
     body{
-        font-size: 5px;
-    }
-
-    header{
-        padding: 2em 2em;
-        border-end-end-radius: 10%;
-        border-end-start-radius: 10%;
-    }
-
-    .navigation__a{
-        font-size: 0.1rem; 
-        margin-left: 2.5em;
-       
+        font-size: 5.5px;
     }
 
     .programs-card{
         width: 30em;
         flex: 0 1 25em;
      }
+}
 
-    .programs-info p{
-        display: none;
+@media (max-width:280px){
+    body{
+        font-size: 4.5px;
+    }
+
+    .navigation__a{
+        font-size: 0.5rem; 
     }
 }
 
