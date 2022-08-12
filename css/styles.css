@@ -27,8 +27,8 @@ body{
 
 :root{
     --primary-bg-color: #ffff;
-    --tab-bg-color: linear-gradient(90deg, #e81affcc 0%, #0062ffcc 100%);
-    --btn-color: #1AFFE8;
+    --tab-bg-color: linear-gradient(90deg, #0062ffcc 0%, #00b7ff 100%);
+    --btn-color: #00e1ff;
     --btn-hover-color: #03d4bf;
     --card: linear-gradient(135deg,rgba(0, 255, 136, 0.5), rgba(97, 255, 221, 0.5), transparent);
     --icon-1-color: #6C0078;
@@ -129,7 +129,7 @@ header{
 
 /* Active Section Style */
 .user-active-section{
-    background: linear-gradient(90deg, #e81affcc 0%, #0062ffcc 100%),
+    background: linear-gradient(90deg, #183153ab 0%, #0062ffcc 100%),
                 url('https://images.pexels.com/photos/4145038/pexels-photo-4145038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat;
     background-size: cover;
     background-position: center;
@@ -142,7 +142,7 @@ header{
 }
 
 .circle1{position: absolute;
-    border: 3px dashed rgb(255, 0, 255);
+    border: 3px dashed #a7cc00c0;
     border-radius: 50%;
     width: 50em;
     height: 50em;
@@ -150,8 +150,25 @@ header{
     animation: rotate 100s linear 0s infinite reverse forwards;
 }
 
+/* Section 1: Home */
+#Home{
+    display: flex;
+    align-items: center;
+}
 
-/* Seciont 2: Programs */
+
+#Home h1{
+    font-size: 4em;
+    font-weight: 500;
+    top: 1em;
+}
+
+#Home h1 span{
+    font-size: 1em;
+    font-weight: 100;
+}
+
+/* Section 2: Programs */
 #Programs{
     transition: var(--transition);
 }
@@ -236,6 +253,7 @@ header{
     display: block;
     width: 100%;
     background: var(--card);
+    border-radius: 50%;
 }
 
 .btn:hover{
@@ -347,6 +365,26 @@ header{
     position: absolute;
     left: 48%;
     top: -1.5em;
+}
+
+/* Footer Styles */
+footer{
+    background: linear-gradient(rgba(246, 246, 246,0.8),rgba(34, 90, 245, 0.8)),
+    url('https://images.pexels.com/photos/3694711/pexels-photo-3694711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 2rem;
+    color: #183153
+}
+
+footer div i{
+    padding-left: 0.5em;
+}
+
+footer p{
+    margin-top: 0.5em;
+    padding: 0.5em;
+    border-top: 1px solid #183153;
 }
 
 
