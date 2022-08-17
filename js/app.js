@@ -183,28 +183,28 @@ bgCircles();
  * Begins Events
  */
 
-// TODO: add event listener (highlight active section) while scrolling in window.
+// TODO: add event listener (highlightActiveSection) while scrolling in window.
     window.addEventListener("scroll", highlightActiveSection);
 
-// TODO: add listener (highlight nav active section) while scrolling in window.
+// TODO: add listener (highlightNavActiveSection) while scrolling in window.
     window.addEventListener("scroll", highlightNavActivSection);
 
-// TODO: run function (hide fixed header) when an event of type 'scroll' happens in the eventTarget (window).
+// TODO: run function (hideFixedHeader) when an event of type 'scroll' happens in the eventTarget (window).
     window.addEventListener('scroll', hideFixedHeader);
 
-// TODO: run event listener (scroll to top btn) when the eventTarget (window) listens for an event of type 'scroll'.
+// TODO: run event listener (scrollToTopBtn) when the eventTarget (window) listens for an event of type 'scroll'.
     window.addEventListener('scroll', scrollToTopBtn);
 
-// TODO: run function (link scroll to top btn) when the eventTarget (scroll to top) listens for an event of type 'click'.
+// TODO: run function (linkScrollToTopBtn) when the eventTarget (scroll to top) listens for an event of type 'click'.
     scrollToTop.addEventListener('click',linkScrollToTopBtn);
 
-// TODO: run listener fn (show instructors) to (section: Team), when the user hovers on it.
+// TODO: run listener fn (showInstructors) to (section: Team), when the user hovers on it.
     teamSection.addEventListener('mouseover', showInstructors);
 
-// TODO: run listener fn (hide instructors) to Team section, when mouse event is mouseleave.
+// TODO: run listener fn (hideInstructors) to Team section, when mouse event is mouseleave.
     teamSection.addEventListener('mouseleave', hideInstructors);
 
-// TODO: scroll to section on link click.
+// TODO: scroll to section on navAnchor click.
     for (const navAnchor of navAnchors) {
         navAnchor.addEventListener('click', scrollToSection);
     }
