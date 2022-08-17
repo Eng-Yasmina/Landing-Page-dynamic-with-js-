@@ -184,10 +184,10 @@ bgCircles();
  */
 
 // TODO: add event listener (highlight active section) while scrolling in window.
-window.addEventListener("scroll", highlightActiveSection);
+    window.addEventListener("scroll", highlightActiveSection);
 
 // TODO: add listener (highlight nav active section) while scrolling in window.
-window.addEventListener("scroll", highlightNavActivSection);
+    window.addEventListener("scroll", highlightNavActivSection);
 
 // TODO: run function (hide fixed header) when an event of type 'scroll' happens in the eventTarget (window).
     window.addEventListener('scroll', hideFixedHeader);
