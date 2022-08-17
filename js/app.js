@@ -73,7 +73,7 @@ navigationMenu();
 // TODO: add value to nav item 'hrf' attribute.
     const navAnchors = navigation__list.querySelectorAll('a'); //It's a global variable now, after creating it in navigationMenu fn and appending it;
     /**
-     * @description extracts title from each section to add it and nav <a>'s href attribute.
+     * @description extracts title from each section to add it to nav <a>'s href attribute.
      */
     const scrollToSection = () => {
         for (const sectionTag of allSections) {
