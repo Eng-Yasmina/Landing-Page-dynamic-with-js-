@@ -2,33 +2,36 @@
  * Defines Global Variables
  */
 const allSections = document.getElementsByTagName('section');
-const mainSection = document.querySelector('section')
+const homeSection = document.querySelector('section');
+const teamSection = document.getElementById('Team');
 const navigattion__list = document.getElementById('navigation__list');
 const mainFragment = document.createDocumentFragment();
+const fragment2 = document.createDocumentFragment();
 const fixedHeaderBar = document.querySelector('header');
 const scrollToTop = document.getElementById('scroll-btn');
-const Anchors = document.getElementsByTagName('a');
+
 
 /**
  * End Global Variables
  * Starts Helper Functions
+ * IMPORTANT: in my js script, helper fn means a small function that I can declare separately away from the main fn that I will call this small fn in.
  */
 
     /**
-     * @description sets timer to hide the header (navigation) bar 
+     * @description set timer to hide the header (navigation) bar.
      */
-    function timer() {
+    const timer = () => {
         hide = setTimeout(()=>{fixedHeaderBar.style.display = 'none';},1000);
-    } 
+    }; 
 
     /**
      * @description clears the (set time out)
      */
-    function stopTimer() {
+    const stopTimer = () => {
         if (typeof hide != 'undefined') {
             clearTimeout(hide);
         }
-    }
+    };
 
 /**
  * End Helper Functions
@@ -37,131 +40,174 @@ const Anchors = document.getElementsByTagName('a');
 
 // TODO: build the nav
     /**
-     * @description Build the nav through loops over all sections to creat list tags <li> and anchor tages <a>, adds text in the innerHTML of <a>, and append anchor tags to list tags to fragment to the unorder list
+     * @description builds the nav through loops over all sections to create list tags <li> and anchor tags <a>, adds the text in the innerHTML of <a> and appends anchor tags to list tags to fragment to the unordered list.
      */
-    function navigationMenu(){
-    // loops over all sections
-    for (const sectionTag of allSections) {
-        // creates list tags <li> and anchor tages <a>
-        const listTag = document.createElement('li');
-        const anchorTag = document.createElement('a'); 
+    const navigationMenu = () => {
+        for (const sectionTag of allSections) {
+            // creates list tags <li> and anchor tages <a>.
+            const listTag = document.createElement('li');
+            const anchorTag = document.createElement('a'); 
 
-        // extracts data-navigation using getAttribute
-        //adds text content to <a>
-        anchorTag.innerHTML = sectionTag.getAttribute('data-navigation');
+            // Extracts the title of each section to add it to <a>'s content.
+            anchorTag.innerHTML = sectionTag.getAttribute('data-navigation');
 
-        // appends anchor Tag <a> to list Tag <li>
-        anchorTag.classList = 'navigation__a';
-        listTag.appendChild(anchorTag);
+            // adds some styles to nav anchors by adding a class to it.
+            anchorTag.classList = 'navigation__a';
 
-        // Scrolls to section on link click
-        anchorTag.addEventListener('click',()=>{
-            anchorTag.href=`#${sectionTag.getAttribute('data-navigation')}`
-        });
+            // Appends anchor tag <a> to list tag <li>
+            listTag.appendChild(anchorTag);
 
-        // appends list tag <li> to fragment
-        mainFragment.appendChild(listTag);
-    }
+            // Appends list tag <li> to fragment
+            mainFragment.appendChild(listTag);
+        }
 
+        // appends fragment to unoreder list <ul>
+        navigattion__list.appendChild(mainFragment);
 
-    //appends fragment to unoreder list <ul>
-    navigattion__list.appendChild(mainFragment);
-
-    // sets the first anchor tag <a> in the navigation menu to active by default
-    navigattion__list.childNodes[0].firstChild.classList.add('active__anchor');
-    }
+        // set the first anchor tag <a> in the navigation menu to active by default.
+        navigattion__list.childNodes[0].firstChild.classList.add('nav-active-section');
+    };
 
 navigationMenu();
 
-// TODO: build the background circles
+// TODO: add value to nav item 'hrf' attribute.
+    const navAnchors = navigattion__list.querySelectorAll('a'); //It's a global variable now, after creating it in navigationMenu fn and appending it;
     /**
-     * @description Build active section background circles
+     * @description extracts title from each section to add it and nav <a>'s href attribute.
      */
-    function bgCircles() {
+    const scrollToSection = () => {
+        for (const sectionTag of allSections) {
+            for (const navAnchor of navAnchors) {
+                if (navAnchor.innerHTML===sectionTag.getAttribute('data-navigation')) {
+                    navAnchor.href=`#${sectionTag.getAttribute('data-navigation')}`;
+                }
+            }
+        }
+    };
+
+// TODO: build the background circles for activated section.
+    /**
+     * @description creates an empty (div) and append it to fragment2, then prepend fragment2 to the top of each section.
+     */
+    const bgCircles = () => {
         for (const sectionTag of allSections) {
             const circle = document.createElement('div');
-            //prepends the div element to each section as a first child
-            sectionTag.prepend(circle);
+            //appends circle to fragment2.
+            fragment2.appendChild(circle);
+            //prepends fragment2 to each section as a first child because i use grid for each section; therefore the order of elements is important for me.
+            sectionTag.prepend(fragment2);
         }
-    }
+    };
 
 bgCircles();
 
+// TODO: add class 'user-active-section' to the section when near the top of the viewport.
+    const highlightActiveSection = () => {
+        // checkes out which section is the section actively being viewed.
+        for (const sectionTag of allSections) {
+            const backgroundCilcle = sectionTag.querySelector('div');
+            // detects the section location relative to the viewport using .getBoundingClientRect()
+            if (sectionTag.getBoundingClientRect().top>-250 && sectionTag.getBoundingClientRect().top<250) {
+                sectionTag.classList.add('user-active-section');
+                backgroundCilcle.classList.add('circle1');
+            } else {
+                sectionTag.classList.remove('user-active-section');
+                backgroundCilcle.classList.remove('circle1');
+            }
+        }
+    };
+
+// TODO: add class 'nav-active-section' to nav anchor tag if it's linked section is the active section.
+    /**
+     * @description uses (get bounding client rect.) method to add class (nav-active-section) to navigation anchor tag <a> when it's linked section near top of viewport.
+     */
+     const highlightNavActivSection = () => {
+        for (const sectionTag of allSections) {
+            if (sectionTag.getBoundingClientRect().top>-250 && sectionTag.getBoundingClientRect().top<250) {
+                // checks out which nav anchor is linked to the section actively being viewed.
+                for (const navAnchor of navAnchors) {
+                    if (navAnchor.innerHTML===sectionTag.getAttribute('data-navigation')) {
+                        navAnchor.classList.add('nav-active-section');
+                    } else {
+                        navAnchor.classList.remove('nav-active-section');
+                    }
+                }
+            }
+        }
+    };
+
+// TODO: hide fixed nav bar
+    /**
+     * @description hides fixed header (navigation) bar while not scrolling.
+     */
+    const hideFixedHeader = () => {
+        fixedHeaderBar.style.display = 'flex';
+        stopTimer();
+        timer();
+    };
+
+// TODO: add a scroll to the top button that's only visible when the user scrolls below the fold of the page.
+    /**
+     * @description shows scroll to the top button when only scroll Y is > 500.
+     */
+    const scrollToTopBtn = () => {
+        scrollToTop.classList.toggle('scroll-to-top',window.scrollY>500);
+    };
+
+    /**
+     * @description links scroll to the top button with the home section.
+     */
+    const linkScrollToTopBtn = () => {
+        scrollToTop.href=`#${homeSection.getAttribute('data-navigation')}`;
+    };
+
+// TODO: pop-up the photos of our amazing instructors only when the user hovers over section 3 (Team).
+    /**
+     * @describtion when the user hovers on (section: Team), the instructors pop up.
+     */
+    const showInstructors = () => {
+        const instructors = teamSection.querySelector('.instructors');
+        instructors.style.display = 'block';
+    };     
+
+    /**
+     * @describtion the photos of instructors disappear when the user moves the mouse away from section3.
+     */
+    const hideInstructors = () => {
+        const instructors = teamSection.querySelector('.instructors');          
+        instructors.style.display = 'none';
+    };     
 
 /**
  * End Main Functions
  * Begins Events
  */
 
-// TODO: Add class 'user-active-section' to section when near top of viewport
-    /**
-     * uses (get bouding client rect.) method to adds class (user-active-section) to section  and class (active-anchor) to it's linked navigation anchor tag <a> when near top of viewport
-     */
-    window.addEventListener("scroll", () =>{
-        
-    
-        // loops through all sections to determine the active section and  also to get each anchor tag <a> inside each section to determine the active anchor tag
-        for (const sectionTag of allSections){
-            const backgroundCilcle = sectionTag.querySelector('div');
+// TODO: add event listener (highlight active section) while scrolling in window.
+window.addEventListener("scroll", highlightActiveSection);
 
-            if(sectionTag.getBoundingClientRect().top>-250 && sectionTag.getBoundingClientRect().top<250){
-                const userActiveSection = sectionTag;
-                userActiveSection.classList.add('user-active-section');
-                backgroundCilcle.classList.add('circle1');
+// TODO: add listener (highlight nav active section) while scrolling in window.
+window.addEventListener("scroll", highlightNavActivSection);
 
-            
-                for(const anchor of Anchors){
-                    // extracts data-navigation to check if it's the active anchor tag <a> or not
-                    if(anchor.innerHTML===userActiveSection.getAttribute('data-navigation')){
-                        anchor.classList.add('active__anchor');
-                    }
-                    else{ anchor.classList.remove('active__anchor');}
-                }
-            } else {
-                sectionTag.classList.remove('user-active-section');
-                backgroundCilcle.classList.remove('circle1');
-            }
-        }
+// TODO: run function (hide fixed header) when an event of type 'scroll' happens in the eventTarget (window).
+    window.addEventListener('scroll', hideFixedHeader);
 
-    });
+// TODO: run event listener (scroll to top btn) when the eventTarget (window) listens for an event of type 'scroll'.
+    window.addEventListener('scroll', scrollToTopBtn);
 
+// TODO: run function (link scroll to top btn) when the eventTarget (scroll to top) listens for an event of type 'click'.
+    scrollToTop.addEventListener('click',linkScrollToTopBtn);
 
-// TODO: hide fixed header (navigation) bar while not scrolling
-    window.addEventListener('scroll', ()=>{
-        fixedHeaderBar.style.display = 'flex';
-      stopTimer();
-       timer();
-    });
+// TODO: run listener fn (show instructors) to (section: Team), when the user hovers on it.
+    teamSection.addEventListener('mouseover', showInstructors);
 
-// TODO: add a scroll to top buttom that's only visible when the user scrolls below the fold of the page
-    window.addEventListener('scroll',()=>{
-        scrollToTop.classList.toggle('scroll-to-top',window.scrollY>500);
-    });
+// TODO: run listener fn (hide instructors) to Team section, when mouse event is mouseleave.
+    teamSection.addEventListener('mouseleave', hideInstructors);
 
-    scrollToTop.addEventListener('click',()=>{
-        scrollToTop.href=`#${mainSection.getAttribute('data-navigation')}`;
-    });
-
-// TODO: display instructors only when hover over section 3 or click team nav anchor
-for (const sectionTag of allSections) {
-        // extracts data-navigation to make sure it's section Team
-        if (sectionTag.getAttribute('data-navigation')=='Team') {
-            const sectionThreeActive = sectionTag;
-            const instructors = sectionThreeActive.querySelector('.instructors')
-                sectionThreeActive.addEventListener('mouseover',()=>{
-                instructors.style.display = 'block';
-                })
-                sectionThreeActive.addEventListener('mouseleave',()=>{
-                instructors.style.display = 'none';
-                })
-        }
-        
-}
-
-
-
-
-
+// TODO: scroll to section on link click.
+    for (const navAnchor of navAnchors) {
+        navAnchor.addEventListener('click', scrollToSection);
+    }
 
 
 

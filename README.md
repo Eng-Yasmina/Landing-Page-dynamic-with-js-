@@ -1,11 +1,15 @@
-# Landing Page dynamic with js
-This Landing-Page project is about manipulating the Dom. in this project i dynamically built the navigation using javascript, i appended dynamically data to the Dom and linked the navigation to the landing page's sections regardless of the number of sections automatically using javascript.
+# Dynamic Landing Page with js(ES6)
+This Landing-Page project is about manipulating the Dom. in this project i built a multi-section landing page, with a dynamically updating navigation menu based on the sections of the page, to do this i used js(ES6) to append dynamically data to the Dom and to link the navigation items to the sections. I also hid the fixed navigation bar while not scrolling, added a scroll to the top button on the page that's only visible when the user scrolls below the fold of the page, and created a responsive layout to use across all devices, such as modern desktops, tablets, and phone browsers.
 # Demo Preview
+https://mir-s3-cdn-cf.behance.net/project_modules/fs/ca2a6a150618167.62fd48f925b77.gif
 # Table of contents
-- [Project Title](#landing-page-dynamic-with-js)
+- [Project Title](#dynamic-landing-page-with-js-es6-)
 - [Demo Preview](#demo-preview)
 - [Table of contents](#table-of-contents)
+- [Contribute](#contribute)
 - [Installation](#installation)
+# Contribute
+Only Udacity reviewers are allowed to clone, fork, and pull my project
 # Installation
 To use my project, first clone my repo on your device using the command below:
 ```git init```

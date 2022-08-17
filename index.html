@@ -5,128 +5,134 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page (advanced js)</title>
-    <!-- Load Font-awesome-->
+    <!-- Load Font-awesome icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
+    <!-- I prefer to write script tag in head tag with using defer -->
     <script src="js/app.js" defer></script>
 </head>
 <body>
         <!-- HTML document Follows BEM naming conventions
         IDs are only used for sections to connect menu anchors to sections -->
         <header>
+            <p class="logo">Udacity</p>
             <nav class="navigation__menu">
                 <!-- Navigation starts as empty UL that will be populated with JS -->
-                <ul id="navigation__list"></ul>
+                <ul id="navigation__list" class="nav__list"></ul>
             </nav>
         </header>
-
+        <main>
+        <!-- TODO: Hide scroll to top button to dynamicelly add it using js, that's only visible when the user scrolls below the fold of the page-->
+        <a class="hidden" id="scroll-btn"><i class="fa-solid fa-circle-chevron-up"></i></a>
+        
         <!-- Each Section has an ID (used for the nav anchor) and a data navigation attribute that will populate the li node.
         Adding more sections will automatically populate nav. -->
-        <main>
-        <!-- hidden scroll to top button to dynamicelly add it using js, that's only visible when the user scrolls below the fold of the page-->
-        <a class="hidden" id="scroll-btn"><i class="fa-solid fa-circle-chevron-up"></i></a>
-
-
-        <!-- ============================== SECTION 1 : HOME =================================== -->
         <!-- The first section is set to active class by default -->
-        <section id="Home" data-navigation="Home" class = "grid user-active-section">
-            <div class="main-grid">
-                <h1><span id="stroke">Advance Your Career</span><br>Learn the Latest <span>Tech Skills</span></h1>
+        <section id="Home" data-navigation="Home" class ="grid user-active-section home">
+            <h1 class="home__title">Advance Your Career<br>Learn the Latest <span class="home__bold-title">Tech Skills</span></h1>
+            <div>
+                <!-- TODO: add main button-->
+                <button class="demo-btn"><a href="" class="demo-btn__link">Request Demo</a></button> 
+                <!-- TODO: add secondary button-->
+                <button class="Gov-btn"><a href="#" class="Gov-btn__link">For Government</a></button>
             </div>
         </section>
 
-
-        <!--===============Section 2: Nanodegrees=========================-->
-        <section id="Programs" data-navigation="Programs" class="grid">
-            <div class="programs-content">
-                <div class="programs-card">
-                    <div class="programs-icon">
+        <section id="Programs" data-navigation="Programs" class="grid programs">
+            <!-- TODO: create container for all programs cards-->
+            <div class="programs__content">
+                <!-- TODO: build first card -->
+                <div class="programs__card">
+                    <div class="programs__icon">
                         <i class="fa-solid fa-cloud"></i>
                     </div>
-
-                    <div class="programs-info">
-                        <h3 style="color: #6C0078;">Cloud Computimg</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit</p>
+                    <div class="programs__info">
+                        <h3 style="color: #2226f8;" class="programs__info__title">Cloud Computimg</h3>
+                        <p class="programs__info__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit</p>
                     </div>
                     <div>
-                        <a href="#Home" class="btn">Read More</a>
+                        <button class="btn"><a href="#Home" class="btn__link">Read More..</a></button>
                     </div>
                 </div>
-
-                <div class="programs-card">
-                    <div class="programs-icon icon2">
+                <!-- TODO: build second card -->
+                <div class="programs__card">
+                    <div class="programs__icon icon2">
                         <i class="fa-solid fa-car"></i>
                     </div>
-
-                    <div class="programs-info">
-                        <h3 style="color: #F41A9C;">Autonomous Systems</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit</p>
+                    <div class="programs__info">
+                        <h3 style="color: #ff006b;" class="programs__info__title">Autonomous Systems</h3>
+                        <p class="programs__info__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit</p>
                     </div>
                     <div>
-                        <a href="#Home" class="btn">Read More</a>
+                        <button class="btn"><a href="#Home" class="btn__link">Read More..</a></button>
                     </div>
                 </div>
-
-                <div class="programs-card">
-                    <div class="programs-icon icon3">
-                        <i class="fa-solid fa-mobile-screen"></i>
+                <!-- TODO: build third card -->
+                <div class="programs__card">
+                    <div class="programs__icon icon3">
+                        <i class="fa-brands fa-android"></i>
                     </div>
-                    <div class="programs-info">
-                        <h3 style="color: #4F1AFF;"> Andriod Kotlin</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit </p>
+                    <div class="programs__info">
+                        <h3 style="color:#edff29;" class="programs__info__title"> Andriod Kotlin</h3>
+                        <p class="programs__info__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At doloremque laborum rem dolores iure fugit </p>
                     </div>
                     <div>
-                        <a href="#Home" class="btn">Read More</a>
+                        <button class="btn"><a href="#Home" class="btn__link">Read More..</a></button>
                     </div>
                 </div>
             </div>
-
-            <h1><span>Why will </span>you choose us?</h1>
+            <!-- I build the title of the section at the end to consider the order of elements in the grid -->
+            <h1 class="programs__title"><span class="programs__bold-title">Why will you </span>choose Udacity?</h1>
         </section>
 
-        <!-- ===================== Section 3: Team=======================-->
-        <section id="Team" data-navigation="Team" class="grid">
+        <section id="Team" data-navigation="Team" class="grid team">
+            <!-- TODO: build the container which all instructors photos will pop-up from -->
                 <div class="instructors">
-                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/katherine-kuan@2x-1784576.jpg" alt=""></div>
-                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/james-parkes%402x-6f66250.jpg" alt=""></div>
-                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/richard-kalehoff%402x-8fh576m.jpg" alt=""></div>
-                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/julia-van-cleve@2x-6e87815.jpg" alt=""></div>
+                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/katherine-kuan@2x-1784576.jpg" alt="Katherine"></div>
+                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/james-parkes%402x-6f66250.jpg" alt="James"></div>
+                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/richard-kalehoff%402x-8fh576m.jpg" alt="Richard"></div>
+                    <div class="instructor"><img src="https://s3-us-west-1.amazonaws.com/udacity-content/instructor/julia-van-cleve@2x-6e87815.jpg" alt="Julia"></div>
                 </div>
-                
-                <h1><span> Meet </span>our<br>Team</h1>
+                <!-- I build the title of the section at the end to consider the order of elements in the grid -->
+                <h1 class="team__title"><span class="team__bold-title"> Meet </span>our<br>Team</h1>
         </section>
 
-        <!-- ===================== Section 4: reviews===================-->
-        <section id="Reviews" data-navigation="Reviews" class="grid">
-            <article>
+        <section id="Reviews" data-navigation="Reviews" class="grid reviews">
+            <h1 class="reviews__title"><span class="reviews__bold-title"> Student's review for </span>learning<br>satisfaction</h1>
+            <article class="reviews__container">
                 <div class="person">
-                    <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFftUeOvUbFyQ/profile-displayphoto-shrink_800_800/0/1658841450583?e=1665619200&v=beta&t=XpFLOAnDZqmbzoEG_uHjwJXPANqxDczfwcY17lq6DsM" alt="">
+                    <!-- this img is my visual-identity :) -->
+                    <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFftUeOvUbFyQ/profile-displayphoto-shrink_800_800/0/1658841450583?e=1665619200&v=beta&t=XpFLOAnDZqmbzoEG_uHjwJXPANqxDczfwcY17lq6DsM" alt="Yasmine A.">
                 </div>
-                <div class="student-info">
-                <h2>YASMINA</h2>
-                <p>Web Developer</p>
+                <div class="student__info">
+                <h2 class="student__name">Yasmine A.</h2>
+                <p class="student__job">Web Developer</p>
                 </div>
-
                 <div class="review">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
                     <q>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste qui cum doloribus dolor ab aliquam tempora omnis distinctio quae repellat?
+                        <em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste qui cum doloribus dolor ab aliquam tempora omnis distinctio quae repellat?</em>
                     </q>
                 </div>
             </article>
-            
-            <h1><span> Student's review for </span>learn<br>satisfaction</h1>
         </section>
 
-        <footer class="grid">
+        <footer class="grid footer">
             <h2>&copy; Udacity</h2>
             <div>
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-youtube"></i>
-                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-facebook-f social"></i>
+                <i class="fa-brands fa-youtube social"></i>
+                <i class="fa-brands fa-twitter social"></i>
             </div>
-            <p>developed by/ yasmina</p>
-
+            <p class="signature">developed by/ yasmina</p>
         </footer>
+
         </main>   
     </body>
 </html>
