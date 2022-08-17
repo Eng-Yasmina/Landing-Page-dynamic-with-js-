@@ -4,7 +4,7 @@
 const allSections = document.getElementsByTagName('section');
 const homeSection = document.querySelector('section');
 const teamSection = document.getElementById('Team');
-const navigattion__list = document.getElementById('navigation__list');
+const navigation__list = document.getElementById('navigation__list');
 const mainFragment = document.createDocumentFragment();
 const fragment2 = document.createDocumentFragment();
 const fixedHeaderBar = document.querySelector('header');
@@ -62,16 +62,16 @@ const scrollToTop = document.getElementById('scroll-btn');
         }
 
         // appends fragment to unoreder list <ul>
-        navigattion__list.appendChild(mainFragment);
+        navigation__list.appendChild(mainFragment);
 
         // set the first anchor tag <a> in the navigation menu to active by default.
-        navigattion__list.childNodes[0].firstChild.classList.add('nav-active-section');
+        navigation__list.childNodes[0].firstChild.classList.add('nav-active-section');
     };
 
 navigationMenu();
 
 // TODO: add value to nav item 'hrf' attribute.
-    const navAnchors = navigattion__list.querySelectorAll('a'); //It's a global variable now, after creating it in navigationMenu fn and appending it;
+    const navAnchors = navigation__list.querySelectorAll('a'); //It's a global variable now, after creating it in navigationMenu fn and appending it;
     /**
      * @description extracts title from each section to add it and nav <a>'s href attribute.
      */
