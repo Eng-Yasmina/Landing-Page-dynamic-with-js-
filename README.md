@@ -10,5 +10,5 @@ Only Udacity reviewers are allowed to clone, fork, and pull my project
 # Installation
 To use my project, first clone my repo on your device using the command below:
 ```git init```
-```git clone https://github.com/Eng-Yasmina/Landing-Page-dynamic-with-is-.git```
+```git clone https://github.com/Eng-Yasmina/Landing-Page-dynamic-with-js-.git```
 
