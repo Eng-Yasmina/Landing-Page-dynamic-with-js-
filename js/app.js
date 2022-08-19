@@ -25,8 +25,8 @@ const timer = () => {
 }; 
 
 /**
-* @description clears the (set time out)
-*/
+ * @description clears the (set time out)
+ */
 const stopTimer = () => {
     if (typeof hide != 'undefined') {
         clearTimeout(hide);
@@ -34,14 +34,14 @@ const stopTimer = () => {
 };
 
 /**
-* End Helper Functions
+ * End Helper Functions
  * Begins Main Functions
  */
 
 // TODO: build the nav
 /**
-* @description builds the nav through loops over all sections to create list tags <li> and anchor tags <a>, adds the text in the innerHTML of <a> and appends anchor tags to list tags to fragment to the unordered list.
-*/
+ * @description builds the nav through loops over all sections to create list tags <li> and anchor tags <a>, adds the text in the innerHTML of <a> and appends anchor tags to list tags to fragment to the unordered list.
+ */
 const navigationMenu = () => {
     for (const sectionTag of allSections) {
         // creates list tags <li> and anchor tages <a>.
