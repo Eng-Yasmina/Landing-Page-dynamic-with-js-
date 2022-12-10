@@ -42,6 +42,7 @@
 body {
     color: var(--primary-text-color);
     background: var(--primary-bg-color);
+    font-size: 13px;
 }
 
 /* Change body's font size for each screen size because i use em unit for all texts for responsive design */
